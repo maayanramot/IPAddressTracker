@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>IP Address Tracker</title>
+    <!-- leaft css -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="top">
+        <div class="title">IP Address Tracker</div>
+        <!-- input search -->
+        <form>
+          <input
+            id="inputIP"
+            class="search"
+            type="search"
+            placeholder="Search for any IP address or domain IP Address Location Timezone UTC"
+          />
+          <button id="searchBtn" type="submit">
+            <img src="./images/searchVector.svg" />
+          </button>
+        </form>
+        <!-- modal -->
+      </div>
+      <div class="results-display">
+        <div class="display-container">
+          <div class="info-block">
+            <div class="muted-title">IP Address</div>
+            <span id="current_ip" class="results">8.8.8.8</span>
+          </div>
+          <img class="line" src="./images/Line.png" />
+          <div class="info-block">
+            <div class="muted-title">Location</div>
+            <span id="current_town" class="results">
+              Mountain View US 94035
+            </span>
+          </div>
+          <img class="line" src="./images/Line.png" />
+          <div class="info-block">
+            <div class="muted-title">Timezone</div>
+            <span id="current_zone" class="results">-08:00</span>
+          </div>
+          <img class="line" src="./images/Line.png" />
+          <div class="info-block">
+            <div class="muted-title">ISP</div>
+            <span id="current_isp" class="results">Google LLC</span>
+          </div>
+        </div>
+      </div>
+      <!-- map -->
+      <div class="bottom" id="map"></div>
+    </div>
+    <!-- map script -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
