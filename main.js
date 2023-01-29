@@ -55,23 +55,18 @@ getIPDetails = (default_ip) => {
     })
 }
 
+const updateMap = (e) => {
+  e.preventDefault()
+  console.log('e.preventDefault()')
+  if (entered_ip.value != '' || entered_ip.value != null) {
+    getIPDetails(entered_ip.value)
+    return
+  }
+  alert('Please enter a valid IP address')
+}
+
 // update the document on click
-search_btn.addEventListener('click', (e) => {
-  e.preventDefault()
-  console.log('e.preventDefault()')
-  if (entered_ip.value != '' || entered_ip.value != null) {
-    getIPDetails(entered_ip.value)
-    return
-  }
-  alert('Please enter a valid IP address')
-})
+search_btn.addEventListener('click', updateMap)
+
 // update the ip to default ip
-window.addEventListener('load', (e) => {
-  e.preventDefault()
-  console.log('e.preventDefault()')
-  if (entered_ip.value != '' || entered_ip.value != null) {
-    getIPDetails(entered_ip.value)
-    return
-  }
-  alert('Please enter a valid IP address')
-})
+window.addEventListener('load', updateMap)
