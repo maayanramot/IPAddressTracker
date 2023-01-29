@@ -1,3 +1,4 @@
+// API
 const secret_api = 'at_swvLpxqpWcx6ewiI7FSmL4Ez9Nf6G'
 const api_uri = 'https://geo.ipify.org/api/v2/country,city'
 
@@ -11,6 +12,7 @@ let current_isp = document.getElementById('current_isp')
 const entered_ip = document.getElementById('inputIP')
 const search_btn = document.getElementById('searchBtn')
 
+// map
 const map = L.map('map', {
   center: [0, 0],
   zoom: 0,
@@ -22,11 +24,13 @@ const map = L.map('map', {
   ],
 })
 
+// update marker
 updateMarker = (update_marker = [-33.665, 18.993]) => {
   map.setView(update_marker, 13)
   L.marker(update_marker).addTo(map)
 }
 
+// get ip details
 getIPDetails = (default_ip) => {
   let ip_url = ''
   if (default_ip == undefined) {
@@ -51,12 +55,21 @@ getIPDetails = (default_ip) => {
     })
 }
 
-document.addEventListener('load', updateMarker())
-
+// update the document on click
 search_btn.addEventListener('click', (e) => {
   e.preventDefault()
   console.log('e.preventDefault()')
-  if (entered_ip.value != '' && entered_ip.value != null) {
+  if (entered_ip.value != '' || entered_ip.value != null) {
+    getIPDetails(entered_ip.value)
+    return
+  }
+  alert('Please enter a valid IP address')
+})
+// update the ip to default ip
+window.addEventListener('load', (e) => {
+  e.preventDefault()
+  console.log('e.preventDefault()')
+  if (entered_ip.value != '' || entered_ip.value != null) {
     getIPDetails(entered_ip.value)
     return
   }
